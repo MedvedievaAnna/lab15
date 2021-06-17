@@ -1,0 +1,77 @@
+#include <iostream>
+using namespace std;
+
+struct AEROFLOT
+{
+char Name[50];
+int Flight[25];
+char Type;
+};
+
+void InputData(AEROFLOT * lrh, int len);
+void OutAllData(AEROFLOT * lrh, int len);
+void OutYearData(AEROFLOT * lrh, int year, int len);
+void SelectSort(AEROFLOT * lrh, int len);
+
+int main(int argc, char* argv[])
+{
+const int col = 7;
+int Flight;
+AEROFLOT Sheet[col];
+
+InputData(Sheet, col);
+cout << endl;
+SelectSort(Sheet, col);
+OutAllData(Sheet, col);
+cout << endl;
+cout << "Input Type: "; cin >> Type;
+OutTypeData(Sheet, Type, col);
+
+return 0;
+}
+
+void InputData(AEROFLOT * lrh, int len)
+{
+for (int i = 0; i < len; ++i)
+{
+cout << "Input AEROFLOT [" << i + 1 << "]\nFlight: "; _flushall(); cin.getline(lrh[i].Flight, 50);
+cout << " Flight: "; cin >> lrh[i]. Flight;
+cout << "Name: "; cin >> lrh[i].Name;
+}
+
+}
+
+void OutAllData(AEROFLOT * lrh, int len)
+{
+
+for (int i = 0; i < len; ++i)
+{
+cout << "Out AEROFLOT [" << i + 1 << "]\nFlight: " << lrh[i].Flight << endl
+<< "Flight: " << lrh[i].Flight << endl
+<< "Name: " << lrh[i].Name << endl;
+}
+}
+
+void OutNameData(AEROFLOT * lrh, char Name, int len)
+{
+bool flag = false;
+for (char i = 0; i < len; ++i)
+{
+if (Name = lrh[i].Name)
+{
+flag = true;
+cout << "Out AEROFLOT [" << i + 1 << "]\nFlight: " << lrh[i].Flight << endl
+<< "Flight: " << lrh[i].Flight << endl
+<< "Name: " << lrh[i].Name << endl;
+}
+}
+
+if (flag == false)
+cout << "Sorry :)" << endl;
+}
+char compare(const AEROFLOT * struct1, const AEROFLOT * struct2)
+{
+char result;
+result = strcmp(struct1->Name, struct2->Name);
+return result;
+}
